@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <img alt="logo warren" src="logo2.png" />
+    <img alt="logo warren" src="logo2.png"/>
     <a href>Menu1</a>
     <div class="dropdown">
       <div class="dropbtn"><a href>Menu2</a></div>
@@ -9,7 +9,7 @@
     <a href>Menu3</a>
     <a href>Menu4</a>
     <a href>Menu5</a>
-    <a href><button>Iniciar</button></a>
+    <router-link to="/form"><button>Iniciar</button></router-link>
   </div>
 </template>
 

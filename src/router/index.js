@@ -3,9 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormView from '../views/FormView.vue'
 
-
 Vue.use(VueRouter);
-
 
 const routes = [
   {
@@ -18,7 +16,7 @@ const routes = [
     path:'/form',
     name: 'form',
     component: FormView
-  }
+  },
 ]
 
 const router = new VueRouter({

@@ -46,4 +46,8 @@ img {
   display: none;
   position: absolute;
 }
+
+button {
+  cursor: pointer;
+}
 </style>

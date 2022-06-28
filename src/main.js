@@ -4,13 +4,15 @@ import './registerServiceWorker'
 import router from './router'
 import Maska from 'maska'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowLeftLong, faFontAwesome } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faArrowLeftLong)
 
-Vue.config.productionTip = false
+
 Vue.use(Maska);
-Vue.component('fa-icon', faFontAwesome);
+Vue.component('fa-icon', FontAwesomeIcon);
+Vue.config.productionTip = false;
 
 new Vue({
   router,

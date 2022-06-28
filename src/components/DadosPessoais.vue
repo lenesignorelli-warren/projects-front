@@ -15,32 +15,30 @@
     <fieldset class="pais">
       <legend>País onde reside</legend>
       <input type="text" id="pais" name="pais" placeholder="Digite">
-      <label for="pais"></label>
     </fieldset>
 
     <fieldset class="cidade">
       <legend>Cidade</legend>
       <input type="text" id="cidade" name="cidade" placeholder="Digite">
-      <label for="cidade"></label>
     </fieldset>
+    <br>
     <br>
 
     <fieldset class="cep">
       <legend>Cep</legend>
-      <input type="text" id="cep" name="cep" placeholder="somente números" maxlength="8">
-      <label for="cep"></label>
+      <input type="text" id="cep" name="cep" placeholder="somente números" v-maska="'#####-###'" v-model="cep">
     </fieldset>
 
     <fieldset class="endereco">
       <legend>Endereço</legend>
       <input type="text" id="endereco" name="endereco" placeholder="Digite">
-      <label for="text"></label>
-    </fieldset><br>
+    </fieldset>
+    <br>
+    <br>
 
     <fieldset class="numero">
       <legend>Número</legend>
       <input type="text" id="numero" name="numero" placeholder="Digite">
-      <label for="numero"></label>
     </fieldset><br>
     
     <button type="submit">Confirmar</button>
@@ -59,6 +57,10 @@ form {
   padding-right: 300px;
 }
 
+input {
+  outline: none;
+}
+
 legend {
   font-size: 14px;
 }
@@ -66,6 +68,7 @@ legend {
 fieldset.numero {
   width: 650px;
 }
+
 .numero input {
   border: white;
   width: 500px;

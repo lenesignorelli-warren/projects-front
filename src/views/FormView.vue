@@ -2,7 +2,7 @@
   <div>
     <div class="bar">
       <h3>FORMULÁRIO</h3>
-      <fa-icon id="arrow" icon="fa-solid fa-arrow-left-long" />
+      <router-link to="/"><fa-icon id="arrow" icon="fa-solid fa-arrow-left-long" /></router-link>
     </div>
 
     <div class="container">
@@ -31,10 +31,15 @@ export default {
   },
   data() {
     return {
-      Fase1: true,
-      Fase2: false,
+      Fase1: false,
+      Fase2: true,
     };
   },
+  methods: {
+    voltar () {
+
+    }
+  }
 };
 </script>
 

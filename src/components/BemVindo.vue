@@ -23,64 +23,31 @@
       <fieldset class="name">
         <legend>Nome Completo</legend>
         <input type="text" id="name" name="name" placeholder="Digite" />
-        <label for="name"></label>
       </fieldset>
       <br />
 
       <fieldset class="email">
         <legend>E-mail</legend>
         <i class="material-icons">&#xe0be;</i>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite"
-          v-model="email"
-        />
-        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Digite" v-model="email" />
       </fieldset>
 
       <fieldset class="email">
         <legend>Confirme e-mail</legend>
         <i class="material-icons">&#xe0be;</i>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite"
-          v-model="email2"
-        />
-        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Digite" v-model="email2" />
       </fieldset>
       <br />
       <br />
 
       <fieldset class="cpf">
         <legend>Cpf</legend>
-        <input
-          type="text"
-          id="cpf"
-          name="cpf"
-          placeholder="somente números"
-          maxlength="14"
-          v-maska="'###.###.###-##'"
-          v-model="num"
-        />
-        <label for="cpf"></label>
+        <input type="text" id="cpf" name="cpf" placeholder="somente números" v-maska="'###.###.###-##'" v-model="cpf" />
       </fieldset>
 
       <fieldset class="celular">
         <legend>Celular</legend>
-        <input
-          type="tel"
-          id="tel"
-          name="celular"
-          placeholder="somente números"
-          maxlength="14"
-          v-maska="'(##)####-####'"
-          v-model="cel"
-        />
-        <label for="tel"></label>
+        <input type="tel" id="tel" name="celular" placeholder="somente números" v-maska="'(##)####-####'" v-model="cel" />
       </fieldset>
       <br />
       <br />
@@ -88,7 +55,6 @@
       <fieldset class="data">
         <legend>Data de nascimento</legend>
         <input type="date" id="birthday" name="birthday" />
-        <label for="tel"></label>
       </fieldset>
       <br />
 
@@ -109,12 +75,13 @@
         investimentos que é completa para você e sua empresa.
       </p>
 
-      <button type="submit">Continuar</button>
+      <router-link to="DadosPessoais"><button>Continuar</button></router-link>
     </form>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "BemVindo",
   methods: {
@@ -130,10 +97,34 @@ export default {
     return {
       email: "",
       email2: "",
-      num: "",
+      cpf: "",
       cel: "",
     };
   },
+// const: validateCpf = () => {
+//   let firstDigitAfterDash = 0
+//   let arrayCpf = Array.from(this.cpf.replaceAll('.', '').replace('-', ''))
+
+//   for (let i = 0; i < arrayCpf.length - 2; i++) {
+//     firstDigitAfterDash += Number.parseInt(arrayCpf[i]) * (10 - i)
+//   }
+//   firstDigitAfterDash = 11 - (firstDigitAfterDash % 11)
+//   firstDigitAfterDash = firstDigitAfterDash === 10 ? 0 : firstDigitAfterDash
+
+//   if (Number.parseInt(arrayCpf[arrayCpf.length - 2]) !== firstDigitAfterDash) {
+//     return false
+//   }
+
+//   let secondDigitAfterDash = 0
+//   for (let i = 0; i < arrayCpf.length - 1; i++)
+//   {
+//     secondDigitAfterDash += Number.parseInt(arrayCpf[i]) * (11 - i)
+//   }
+//   secondDigitAfterDash = 11 - (secondDigitAfterDash % 11)
+//   secondDigitAfterDash = secondDigitAfterDash === 10 ? 0 : secondDigitAfterDash
+
+//   return secondDigitAfterDash === Number.parseInt(arrayCpf[arrayCpf.length - 1])
+// }
 };
 </script>
 

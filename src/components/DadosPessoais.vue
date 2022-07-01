@@ -14,19 +14,19 @@
 
     <fieldset class="pais">
       <legend>País onde reside</legend>
-      <input type="text" id="pais" name="pais" placeholder="Digite">
+      <input type="text" id="pais" name="pais" placeholder="Digite" required>
     </fieldset>
 
     <fieldset class="cidade">
       <legend>Cidade</legend>
-      <input type="text" id="cidade" name="cidade" placeholder="Digite">
+      <input type="text" id="cidade" name="cidade" placeholder="Digite" required>
     </fieldset>
     <br>
     <br>
 
     <fieldset class="cep">
       <legend>Cep</legend>
-      <input type="text" id="cep" name="cep" placeholder="somente números" v-maska="'#####-###'" v-model="cep">
+      <input type="text" id="cep" name="cep" placeholder="somente números" v-maska="'#####-###'" v-model="cep" required>
     </fieldset>
 
     <fieldset class="endereco">
@@ -41,13 +41,24 @@
       <input type="text" id="numero" name="numero" placeholder="Digite">
     </fieldset><br>
     
-    <button type="submit">Confirmar</button>
+    <button @click.prevent='proximaStep()' type="submit">Confirmar</button>
   </form>
 </template>
 
 <script>
 export default {
-    name: "DadosPessoais"
+    name: "DadosPessoais",
+    data () {
+      return {
+        cep: "",
+      }
+    },
+
+    methods: {
+      proximaStep(){
+        this.$emit('nextStep')
+      }
+    }
 }
 </script>
 

@@ -2,18 +2,27 @@
   <div>
     <div class="bar">
       <h3>FORMULÁRIO</h3>
-      <router-link to="/"><fa-icon id="arrow" icon="fa-solid fa-arrow-left-long" /></router-link>
+      <router-link to="/">
+        <fa-icon
+          id="arrow"
+          class="styleIcon"
+          icon="fa-solid fa-arrow-left-long"
+      /></router-link>
     </div>
 
     <div class="container">
       <div class="image">
         <img src="../assets/Fer.png" alt="Fernanda" />
       </div>
+
       <div v-show="Fase1">
-        <BemVindo />
+        <BemVindo @nextStep="changePage()" />
       </div>
       <div v-show="Fase2">
-        <DadosPessoais />
+        <DadosPessoais @nextStep="changePage()" />
+      </div>
+      <div v-show="Fase3">
+        <FinaLizado />
       </div>
     </div>
   </div>
@@ -22,24 +31,39 @@
 <script>
 import BemVindo from "../components/BemVindo.vue";
 import DadosPessoais from "../components/DadosPessoais.vue";
+import FinaLizado from "../components/FinaLizado.vue";
 
 export default {
   name: "FormView",
   components: {
     BemVindo,
     DadosPessoais,
+    FinaLizado,
   },
+
   data() {
     return {
-      Fase1: false,
-      Fase2: true,
+      Fase1: true,
+      Fase2: false,
+      Fase3: false,
     };
   },
-  methods: {
-    voltar () {
 
-    }
-  }
+  methods: {
+    changePage() {
+      if (this.Fase1 == true && this.Fase2 == false) {
+        this.Fase1 = false;
+        this.Fase2 = true;
+      } else if (
+        this.Fase1 == false &&
+        this.Fase2 == true &&
+        this.Fase3 == false
+      ) {
+        this.Fase2 = false;
+        this.Fase3 = true;
+      }
+    },
+  },
 };
 </script>
 

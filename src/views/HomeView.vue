@@ -1,16 +1,11 @@
 <template>
-<div>
-  <MenuWarren />
+  <div>
+    <MenuWarren />
     <BannerWarren />
     <DestaqueWarren />
     <InvestirWarren />
     <RodapeWarren />
-
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -28,10 +23,6 @@ export default {
     DestaqueWarren,
     InvestirWarren,
     RodapeWarren,
-  }
-}
+  },
+};
 </script>
-
-<style>
-
-</style>

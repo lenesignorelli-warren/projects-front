@@ -4,9 +4,8 @@
       <h1>Investir é sobre você</h1>
       <p>COMECE A INVESTIR EM POUCOS MINUTOS. DESCOMPLIQUE.</p>
     </div>
-    <div class="button">
       <button>Saiba Mais</button>
-    </div>
+    
   </section>
 </template>
 
@@ -26,9 +25,16 @@ export default {
   align-items: center;
 }
 
-.button {
+button {
   display: flex;
   height: 40px;
+  border-radius: 50px;
+  color: white;
+  background: black;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
 h1 {

@@ -15,15 +15,6 @@ export default {
   font-family: Arial;
 }
 
-button {
-  border-radius: 50px;
-  color: white;
-  background: black;
-  padding: 10px;
-  font-weight: bold;
-  border: none;
-}
-
 body {
   margin: 0;
 }

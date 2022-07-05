@@ -67,5 +67,10 @@ p {
 button {
   background-color: #e02b57;
   border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>

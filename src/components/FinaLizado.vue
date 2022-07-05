@@ -40,6 +40,12 @@ form {
 }
 
 button {
+  border-radius: 50px;
+  color: white;
+  background: black;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
   cursor: pointer;
 }
 

@@ -3,7 +3,8 @@
     <div class="item1">
         <h1>O Modelo Warren é mais justo para você</h1>
         <p>Na Warren, você tem performance para seus investimentos e uma experiência que é livre de taxas desonestas.</p>
-        <button>Saiba Mais</button>
+        
+        <button class="btn">Saiba Mais</button>
     </div>
   </div>
 </template>
@@ -22,20 +23,17 @@ export default {
     padding: 20px;
 }
 
-.item1{
+.item1, h1{
     margin-left: 100px;
     margin-right: 600px;
+    font-size: 80px;
 }
 
-h1 {
-  font-size: 80px;
-}
-
-p{
+.item1, p{
     font-size: 20px;
 }
 
-button {
+.btn {
   border-radius: 50px;
   color: white;
   background: black;

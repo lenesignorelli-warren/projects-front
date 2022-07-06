@@ -8,7 +8,7 @@
       />
     </head>
 
-    <form>
+    <form class="form">
       <div class="count">
         <ul class="progressbar">
           <li class="active">Passo 1</li>
@@ -17,15 +17,27 @@
         </ul>
       </div>
 
-      <h1>Seja Bem Vindo</h1>
-      <p><strong>Dados de Contato</strong></p>
-      <p>Abra sua conta em 2 minutos. É grátis!</p>
+      <div class="text">
+        <h1>Seja Bem Vindo</h1>
+      </div>
+
+      <div class="text">
+        <p><strong>Dados de Contato</strong></p>
+      </div>
+
+      <div class="text">
+        <p>Abra sua conta em 2 minutos. É grátis!</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+          sollicitudin pulvinar elit eu rhoncus. Integer vitae lacus tempor,
+          efficitur felis vel, dapibus erat.
+        </p>
+      </div>
 
       <fieldset class="name">
         <legend>Nome Completo</legend>
         <input type="text" id="name" name="name" placeholder="Digite" />
       </fieldset>
-      <br />
 
       <fieldset class="email">
         <legend>E-mail</legend>
@@ -37,7 +49,9 @@
           v-model="contact.email"
           @blur="$v.contact.email.$touch"
         />
-        <span v-if="$v.contact.email.email && $v.contact.email.$error">Este campo é requerido</span>
+        <span v-if="$v.contact.email.email && $v.contact.email.$error"
+          >Este campo é requerido</span
+        >
         <span v-if="!$v.contact.email.email">Este e-mail não é válido</span>
       </fieldset>
 
@@ -52,10 +66,10 @@
           v-model="contact.confirmEmail"
           @blur="$v.contact.confirmEmail.$touch"
         />
-        <span v-if="!$v.contact.confirmEmail.sameAs">Os e-mails são diferentes</span>
+        <span v-if="!$v.contact.confirmEmail.sameAs"
+          >Os e-mails são diferentes</span
+        >
       </fieldset>
-      <br />
-      <br />
 
       <fieldset class="cpf">
         <legend>Cpf</legend>
@@ -70,7 +84,9 @@
           @blur="$v.contact.cpf.$touch"
         />
         <span v-if="$v.contact.cpf.$error">Este campo é requerido</span>
-        <span v-if="!validateCpf() && !$v.contact.cpf.$error">CPF INVALIDO</span>
+        <span v-if="!validateCpf() && !$v.contact.cpf.$error"
+          >CPF INVALIDO</span
+        >
       </fieldset>
 
       <fieldset class="celular">
@@ -84,44 +100,52 @@
           v-model="contact.cel"
         />
       </fieldset>
-      <br />
-      <br />
 
       <fieldset class="data">
         <legend>Data de nascimento</legend>
         <input type="date" id="birthday" name="birthday" />
       </fieldset>
-      <br />
 
-      <p><strong>Gostaria de saber mais sobre o mercado financeiro?</strong></p>
-      <p>
-        <strong
-          >Receba um resumo diário na palma de sua mão ou na tela do seu
-          computador.</strong
-        >
-      </p>
-      <br />
+      <div class="text">
+        <p>
+          <strong>Gostaria de saber mais sobre o mercado financeiro?</strong>
+        </p>
+        <p>
+          <strong
+            >Receba um resumo diário na palma de sua mão ou na tela do seu
+            computador.</strong
+          >
+        </p>
+      </div>
 
-      <input type="checkbox" id="email" />
-      <label for="email">E-mail e SMS</label>
-      <br />
-      <br />
-      <input type="checkbox" id="whatsapp" />
-      <label for="whatsapp">Whatsapp</label><br />
-      <br />
+      <div class="check1">
+        <input type="checkbox" id="email" />
+        <label for="email">E-mail e SMS</label>
+      </div>
+      <div class="check2">
+        <input type="checkbox" id="whatsapp" />
+        <label for="whatsapp">Whatsapp</label>
+      </div>
 
-      <p>
-        Unimos tecnologia e atendimento humano em uma plataforma de
-        investimentos que é completa para você e sua empresa.
-      </p>
+      <div class="text">
+        <p>
+          Unimos tecnologia e atendimento humano em uma plataforma de
+          investimentos que é completa para você e sua empresa. Lorem ipsum
+          dolor sit amet, consectetur adipiscing elit. Integer sollicitudin
+          pulvinar elit eu rhoncus. Integer vitae lacus tempor, efficitur felis
+          vel, dapibus erat.
+        </p>
+      </div>
 
-      <button @click='$v.$touch' @click.prevent="valideForm()">Continuar</button>
+      <button @click="$v.$touch" @click.prevent="valideForm()">
+        Continuar
+      </button>
     </form>
   </div>
 </template>
 
 <script>
-import { required, sameAs, email} from "vuelidate/lib/validators";
+import { required, sameAs, email } from "vuelidate/lib/validators";
 
 export default {
   name: "BemVindo",
@@ -133,16 +157,16 @@ export default {
         confirmEmail: "",
         cpf: "",
         cel: "",
-      }
+      },
     };
   },
 
   validations: {
     contact: {
-      email: {email, required},
-      confirmEmail: {required, sameAs: sameAs("email")},
+      email: { email, required },
+      confirmEmail: { required, sameAs: sameAs("email") },
       cpf: { required },
-    }
+    },
   },
 
   methods: {
@@ -170,27 +194,20 @@ export default {
       return true;
     },
 
-    valideForm(){
-      if ( this.validateCpf() && !this.$v.$error){
-        console.log('pronto para ir a proxima step')
-        this.$emit('nextStep')
-      } else {
-        console.log('Informações incompletas')
+    valideForm() {
+      if (this.validateCpf() && !this.$v.$error) {
+        console.log("pronto para ir a proxima step");
+        this.$emit("nextStep");
       }
-    }
-  }
-
+    },
+  },
 };
 </script>
 
 <style scoped>
-form {
-  text-align: left;
-  padding-right: 300px;
-}
-
-h1 {
-  padding-top: 100px;
+.form {
+  width: 50%;
+  padding-left: 400px;
 }
 
 legend {
@@ -199,7 +216,9 @@ legend {
 
 fieldset.name {
   width: 650px;
+  border-radius: 10px;
 }
+
 .name input {
   border: white;
   width: 500px;
@@ -211,6 +230,7 @@ fieldset.email,
 .celular,
 .data {
   width: 250px;
+  border-radius: 10px;
 }
 
 input {
@@ -230,6 +250,16 @@ input {
 .cpf,
 .celular {
   display: inline-block;
+  margin-block: 10px;
+}
+
+.check1,
+.check2 {
+  margin-block: 50px;
+}
+
+.text {
+  margin-block: 50px;
 }
 
 .material-icons {
@@ -251,7 +281,8 @@ button {
 }
 
 .count {
-  width: 100%;
+  margin-block: 50px;
+  padding-block: 50px;
 }
 
 .progressbar {
